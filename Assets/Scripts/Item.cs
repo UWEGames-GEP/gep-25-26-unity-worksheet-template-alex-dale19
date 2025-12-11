@@ -15,17 +15,4 @@ public abstract class Item : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            
-            Inventory playerInventory = other.GetComponent<Inventory>();
-
-            if (playerInventory != null)
-            {
-                playerInventory.AddItem(this);
-            }
-        }
-    }
 }

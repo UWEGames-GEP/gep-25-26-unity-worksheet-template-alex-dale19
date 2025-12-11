@@ -388,5 +388,23 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            
+            Item hitItem = hit.gameObject.GetComponent<Item>();
+
+            
+            if (hitItem != null)
+            {
+                
+                Inventory myInventory = GetComponent<Inventory>();
+
+                if (myInventory != null)
+                {
+
+                    myInventory.AddItem(hitItem);
+                }
+            }
+        }
     }
 }
